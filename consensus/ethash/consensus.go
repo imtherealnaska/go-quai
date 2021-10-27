@@ -316,6 +316,9 @@ func (ethash *Ethash) verifyHeader(chain consensus.ChainHeaderReader, header, pa
 	if err := misc.VerifyForkHashes(chain.Config(), header, uncle); err != nil {
 		return err
 	}
+	if err := misc.VerifyLocation(chain.Config(), header); err != nil {
+		return err
+	}
 	return nil
 }
 

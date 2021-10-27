@@ -141,6 +141,7 @@ var (
 				ChainID:             big.NewInt(9101),
 				Context:             2,
 				Location:            []byte{1, 1},
+				MapLocation:         []int{3, 3, 3},
 				Ethash:              new(EthashConfig),
 				HomesteadBlock:      big.NewInt(0),
 				DAOForkBlock:        nil,
@@ -161,6 +162,7 @@ var (
 				ChainID:             big.NewInt(9102),
 				Context:             2,
 				Location:            []byte{1, 2},
+				MapLocation:         []int{3, 3, 3},
 				Ethash:              new(EthashConfig),
 				HomesteadBlock:      big.NewInt(0),
 				DAOForkBlock:        nil,
@@ -181,6 +183,7 @@ var (
 				ChainID:             big.NewInt(9103),
 				Context:             2,
 				Location:            []byte{1, 3},
+				MapLocation:         []int{3, 3, 3},
 				Ethash:              new(EthashConfig),
 				HomesteadBlock:      big.NewInt(0),
 				DAOForkBlock:        nil,
@@ -202,6 +205,7 @@ var (
 				ChainID:             big.NewInt(9201),
 				Context:             2,
 				Location:            []byte{2, 1},
+				MapLocation:         []int{3, 3, 3},
 				Ethash:              new(EthashConfig),
 				HomesteadBlock:      big.NewInt(0),
 				DAOForkBlock:        nil,
@@ -222,6 +226,7 @@ var (
 				ChainID:             big.NewInt(9202),
 				Context:             2,
 				Location:            []byte{2, 2},
+				MapLocation:         []int{3, 3, 3},
 				Ethash:              new(EthashConfig),
 				HomesteadBlock:      big.NewInt(0),
 				DAOForkBlock:        nil,
@@ -242,6 +247,7 @@ var (
 				ChainID:             big.NewInt(9203),
 				Context:             2,
 				Location:            []byte{2, 3},
+				MapLocation:         []int{3, 3, 3},
 				Ethash:              new(EthashConfig),
 				HomesteadBlock:      big.NewInt(0),
 				DAOForkBlock:        nil,
@@ -263,6 +269,7 @@ var (
 				ChainID:             big.NewInt(9301),
 				Context:             2,
 				Location:            []byte{3, 1},
+				MapLocation:         []int{3, 3, 3},
 				Ethash:              new(EthashConfig),
 				HomesteadBlock:      big.NewInt(0),
 				DAOForkBlock:        nil,
@@ -283,6 +290,7 @@ var (
 				ChainID:             big.NewInt(9302),
 				Context:             2,
 				Location:            []byte{3, 2},
+				MapLocation:         []int{3, 3, 3},
 				Ethash:              new(EthashConfig),
 				HomesteadBlock:      big.NewInt(0),
 				DAOForkBlock:        nil,
@@ -303,6 +311,7 @@ var (
 				ChainID:             big.NewInt(9303),
 				Context:             2,
 				Location:            []byte{3, 3},
+				MapLocation:         []int{3, 3, 3},
 				Ethash:              new(EthashConfig),
 				HomesteadBlock:      big.NewInt(0),
 				DAOForkBlock:        nil,
@@ -374,16 +383,17 @@ var (
 	//
 	// This configuration is intentionally not using keyed fields to force anyone
 	// adding flags to the config to also have to set these fields.
-	AllEthashProtocolChanges = &ChainConfig{big.NewInt(1337), 0, []byte{0, 0}, big.NewInt(0), nil, false, big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, new(EthashConfig), nil}
+	AllEthashProtocolChanges = &ChainConfig{big.NewInt(1337), 0, []byte{0, 0}, []int{3, 3, 3},
+		big.NewInt(0), nil, false, big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, new(EthashConfig), nil}
 
 	// AllCliqueProtocolChanges contains every protocol change (EIPs) introduced
 	// and accepted by the Ethereum core developers into the Clique consensus.
 	//
 	// This configuration is intentionally not using keyed fields to force anyone
 	// adding flags to the config to also have to set these fields.
-	AllCliqueProtocolChanges = &ChainConfig{big.NewInt(1337), 0, []byte{0, 0}, big.NewInt(0), nil, false, big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, nil, &CliqueConfig{Period: 0, Epoch: 30000}}
+	AllCliqueProtocolChanges = &ChainConfig{big.NewInt(1337), 0, []byte{0, 0}, []int{3, 3, 3}, big.NewInt(0), nil, false, big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, nil, &CliqueConfig{Period: 0, Epoch: 30000}}
 
-	TestChainConfig = &ChainConfig{big.NewInt(1), 0, []byte{0, 0}, big.NewInt(0), nil, false, big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, new(EthashConfig), nil}
+	TestChainConfig = &ChainConfig{big.NewInt(1), 0, []byte{0, 0}, []int{3, 3, 3}, big.NewInt(0), nil, false, big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, new(EthashConfig), nil}
 	TestRules       = TestChainConfig.Rules(new(big.Int))
 )
 
@@ -445,6 +455,7 @@ type ChainConfig struct {
 
 	Context        int      // Context defines the index in which the chain operates at
 	Location       []byte   //Location for a given block
+	MapLocation    []int    // MapLocation for allowable Regions and Zones
 	HomesteadBlock *big.Int `json:"homesteadBlock,omitempty"` // Homestead switch block (nil = no fork, 0 = already homestead)
 
 	DAOForkBlock   *big.Int `json:"daoForkBlock,omitempty"`   // TheDAO hard-fork switch block (nil = no fork)
